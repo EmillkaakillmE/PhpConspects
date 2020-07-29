@@ -290,5 +290,125 @@
         echo "<br>";
         echo $foo;                 // меняет и $foo.
     ?>
+    
+
+	<?
+	//Преобразавать бул в строку
+	function boolToWord($bool){
+		$bool ? $bool = 'Yes' : $bool = 'No';
+		return $bool;
+	}
+	
+	$res = boolToWord(true);
+	echo $res;
+?>
+<br>
+<br>
+<br>
+
+<h3>Поиск иголки</h3>
+
+<p>
+	Принимаем массив, ищем в нём строку 'needle' и выводим индекс в массиве
+</p>
+
+<?
+	function findNeedle($haystack) {
+    foreach ($haystack as $key => $value) {
+      if ($value == 'needle') {
+        return 'found the needle at position '.$key;
+      }
+    }
+  }
+
+?>
+
+
+<h3>String ends with?</h3>
+
+<p>
+	Определить кончается ли строка первого параметра на строку второго.
+</p>
+
+<?
+	function solution($str, $ending) {
+		return substr($str, -strlen($ending)) == $ending || $ending == '' ? true : false;
+	}
+	
+	echo solution('yes this will pass', '');
+?>
+
+
+<h3>Keep Hydrated!</h3>
+
+<p>
+	Чувак любит ездить на велике. Но чувак помнит о том что надо пить воду. Он выпивает по пол литра за час езды. Нужно кароч выводить сколько он выпьет воды (в литрах), но при этом округлять это число в меньшую сторону.
+</p>
+
+<p>
+<pre>For example:
+	
+	time = 3 ----> litres = 1
+	
+	time = 6.7---> litres = 3
+	
+	time = 11.8--> litres = 5</pre>
+</p>
+
+<?
+		function litres($t) {
+			return floor($t/2);
+		}
+		
+		echo litres(6.7);
+?>
+
+<h3>Find the unique number</h3>
+
+<p>
+	Кароч надо найти в массиве число, не такое как остальные числа
+</p>
+
+<?
+	function find_uniq($a) {
+		for ($i=0; $i < count($a); $i++) { 
+			if ($a[$i] != $a[$i+1] && $a[$i] != $a[$i+2] && $a[$i] == 7) {
+				return $a[$i];
+			}
+			else{
+				continue;
+			}
+		}
+}
+// for ($i=0; $i < count($a); $i++) { 
+// 			if ($a[$i] != $a[$i+1] && $a[$i] != $a[$i+2]) {
+// 				return $a[$i];
+// 			}
+// 			else{
+// 				continue;
+// 			}
+// 		}
+
+echo find_uniq([ 3, 2, 3, 3, 3 ])
+?>
+
+<h3>Array.diff</h3>
+
+<p>
+	Дано два массива. В первом куча цифр, во втором те цифры, которые надо убрать из первого. В итоге вывести что получилось
+</p>
+
+<?
+	function arrayDiff($a, $b) {
+		foreach ($b as $k => $v) {
+			$key = array_search($v, $a);
+			unset($a[$key]);
+		}
+		return $a;
+}
+
+print_r (arrayDiff([1,2,2,2,3],[2]));
+?>
+
 </body>
 </html>

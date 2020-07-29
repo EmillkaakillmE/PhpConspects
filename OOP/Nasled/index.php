@@ -52,7 +52,7 @@
 			private $model;
 			
 			function __construct($speed, $color , $model) {
-				//Т.к поля speed и color - protected, нужно взять их значения из главного конструктора отдельно
+				//Помимо изменения функции мы подключаем всё то, что было у родительского класса в этой функции. (Перегрузка)
 				parent::__construct($speed, $color);
 				$this->model = $model;
 			}

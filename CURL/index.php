@@ -27,5 +27,7 @@
 		//Закрываем CURL. Эт обязательно
 		curl_close($curl);
 	?>
+	
+	
 </body>
 </html>
